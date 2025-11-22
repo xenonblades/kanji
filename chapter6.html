@@ -4,7 +4,7 @@
   <meta name="google" content="notranslate">
   <meta http-equiv="Content-Language" content="ja">
   <meta charset="UTF-8">
-  <title>Chapter 1 Kanji Quiz</title>
+  <title>Chapter 6 Kanji Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -161,7 +161,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>Chapter 1 漢字 001～072 クイズ</h1>
+  <h1>第6漢字クイズ</h1>
   <div class="subtitle">シンプル4択 / choose 1 option → see Correct / Wrong</div>
 
   <div class="meta-row">
@@ -189,7 +189,7 @@ const quiz = [
   {section:"問題1（読む）", q:"日本では毎年様々な<span class=\"hl\">伝統</span>的な行事が行われる。", opts:["てんとう","でんとう","てんけい","てんのう"], correct:1},
   {section:"問題1（読む）", q:"夏休みは<span class=\"hl\">充実</span>した毎日を過ごしたい。", opts:["ちゅうじつ","しゅうじつ","じゅうじつ","じゅじつ"], correct:2},
   {section:"問題1（読む）", q:"面接の時は<span class=\"hl\">緊張</span>のあまり、頭が真っ白になった。", opts:["きんちょ","けんちょ","けんちょう","きんちょう"], correct:3},
-  {section:"問題1（読む）", q:"列車が時刻どおりに<span class=\"hl\">到着</span>した。", opts:["じこく","じごく","じかく","じがく"], correct:0},
+  {section:"問題1（読む）", q:"列車が<span class=\"hl\">時刻</span>どおりに到着した。", opts:["じこく","じごく","じかく","じがく"], correct:0},
   {section:"問題1（読む）", q:"人類は<span class=\"hl\">宇宙</span>に関しての知識がまだまだ乏しい。", opts:["うちゅう","うじゅう","ふちゅう","ふじゅう"], correct:0},
   {section:"問題1（読む）", q:"業績をきちんと評価されるかどうかは、働く<span class=\"hl\">意欲</span>に影響する。", opts:["いゆう","いゆく","いよう","いよく"], correct:3},
   {section:"問題1（読む）", q:"IT知識が全くない<span class=\"hl\">素人</span>に、この部署の部長が務まるわけがない。", opts:["そにん","すじん","すひと","しろうと"], correct:3},
@@ -197,15 +197,15 @@ const quiz = [
   {section:"問題1（読む）", q:"家から<span class=\"hl\">最寄り</span>の駅まで歩いて30分もかかる。", opts:["さいより","もより","さより","せより"], correct:1},
 
   // 問題2（漢字）
-  {section:"問題2（漢字）", q:"生命保険の加入をかんゆうされた。", opts:["勧進","勧誘","勧告","警告"], correct:1},
-  {section:"問題2（漢字）", q:"海外留学の息子からの連絡が突然とだえた。", opts:["余純えた","余絶えた","途純えた","途絶えた"], correct:3},
-  {section:"問題2（漢字）", q:"レポート提出のしめきりは今週金曜日です。", opts:["締め切り","総め切り","編め切り","織め切り"], correct:0},
-  {section:"問題2（漢字）", q:"セーターを洗ったらちぢんでしまった。", opts:["編んで","刻んで","縮んで","悩んで"], correct:2},
-  {section:"問題2（漢字）", q:"犯人が包丁で被害者をさして逃走した。", opts:["犯して","干して","刺して","乱して"], correct:2},
-  {section:"問題2（漢字）", q:"よかを利用して副業をする。", opts:["余裕","余暇","余分","余計"], correct:1},
-  {section:"問題2（漢字）", q:"ねぼうして学校に遅刻した。", opts:["官坊","富坊","寂坊","寝坊"], correct:3},
-  {section:"問題2（漢字）", q:"殺人の容疑でけいさつに逮捕された。", opts:["警察","警官","警備","警告"], correct:0},
-  {section:"問題2（漢字）", q:"強い風で髪がみだれてしまった。", opts:["暴れて","恐れて","壊れて","乱れて"], correct:3},
+  {section:"問題2（漢字）", q:"保険会社の人に生命保険の加入を<span class=\"hl\">かんゆう</span>された。", opts:["勧進","勧誘","勧告","警告"], correct:1},
+  {section:"問題2（漢字）", q:"海外留学の息子からの連絡が突然<span class=\"hl\">とだえた</span>。", opts:["余純えた","余絶えた","途純えた","途絶えた"], correct:3},
+  {section:"問題2（漢字）", q:"レポート提出の<span class=\"hl\">しめきり</span>は今週金曜日です。", opts:["締め切り","総め切り","編め切り","織め切り"], correct:0},
+  {section:"問題2（漢字）", q:"セーターを洗ったら<span class=\"hl\">ちぢんで</span>しまった。", opts:["編んで","刻んで","縮んで","悩んで"], correct:2},
+  {section:"問題2（漢字）", q:"犯人が包丁で被害者を<span class=\"hl\">さして</span>逃走した。", opts:["犯して","干して","刺して","乱して"], correct:2},
+  {section:"問題2（漢字）", q:"収入を増やすため、<span class=\"hl\">よか</span>を利用して副業をする。", opts:["余裕","余暇","余分","余計"], correct:1},
+  {section:"問題2（漢字）", q:"<span class=\"hl\">ねぼう</span>して学校に遅刻した。", opts:["官坊","富坊","寂坊","寝坊"], correct:3},
+  {section:"問題2（漢字）", q:"彼は殺人の容疑で<span class=\"hl\">けいさつ</span>に逮捕された。", opts:["警察","警官","警備","警告"], correct:0},
+  {section:"問題2（漢字）", q:"強い風で髪の毛が<span class=\"hl\">みだれて</span>しまった。", opts:["暴れて","恐れて","壊れて","乱れて"], correct:3},
   {section:"問題2（漢字）", q:"結婚式で<span class=\"hl\">ゆびわ</span>を交換した。", opts:["指輪","指軒","指較","指軟"], correct:0},
 
   // 問題3（読む）
@@ -221,17 +221,26 @@ const quiz = [
   {section:"問題3（読む）", q:"<span class=\"hl\">快適</span>", opts:["かいて","かいで","かいでき","かいてき"], correct:3},
 
   // 問題4（漢字）
-  {section:"問題4（漢字）", q:"税金をおさめる", opts:["勧める","締める","縮める","納める"], correct:3},
-  {section:"問題4（漢字）", q:"財産をひきつぐ", opts:["引き緒ぐ","引き緑ぐ","引き継ぐ","引き繰ぐ"], correct:2},
-  {section:"問題4（漢字）", q:"セーターをあむ", opts:["編む","縮む","刻む","頼む"], correct:0},
-  {section:"問題4（漢字）", q:"洗濯物をほす", opts:["訳す","干す","刺す","乱す"], correct:1},
-  {section:"問題4（漢字）", q:"文章をてんさくする", opts:["添削","添刷","添刺","添刻"], correct:0},
-  {section:"問題4（漢字）", q:"きかくを立てる", opts:["絵画","漫画","録画","企画"], correct:3},
-  {section:"問題4（漢字）", q:"意見をのべる", opts:["延べる","伸べる","述べる","並べる"], correct:2},
-  {section:"問題4（漢字）", q:"道にまよう", opts:["迷う","敬う","添う","構う"], correct:0},
-  {section:"問題4（漢字）", q:"目標をたっせいする", opts:["構成","達成","育成","形成"], correct:1},
-  {section:"問題4（漢字）", q:"職につく", opts:["突く","導く","招く","就く"], correct:3}
+    // 問題4（漢字）
+  {section:"問題4（漢字）", q:"税金を<span class=\"hl\">おさめる</span>", opts:["勧める","締める","縮める","納める"], correct:3},
+  {section:"問題4（漢字）", q:"財産を<span class=\"hl\">ひきつぐ</span>", opts:["引き緒ぐ","引き緑ぐ","引き継ぐ","引き繰ぐ"], correct:2},
+  {section:"問題4（漢字）", q:"セーターを<span class=\"hl\">あむ</span>", opts:["編む","縮む","刻む","頼む"], correct:0},
+  {section:"問題4（漢字）", q:"洗濯物を<span class=\"hl\">ほす</span>", opts:["訳す","干す","刺す","乱す"], correct:1},
+  {section:"問題4（漢字）", q:"文章を<span class=\"hl\">てんさく</span>する", opts:["添削","添刷","添刺","添刻"], correct:0},
+  {section:"問題4（漢字）", q:"<span class=\"hl\">きかく</span>を立てる", opts:["絵画","漫画","録画","企画"], correct:3},
+  {section:"問題4（漢字）", q:"意見を<span class=\"hl\">のべる</span>", opts:["延べる","伸べる","述べる","並べる"], correct:2},
+  {section:"問題4（漢字）", q:"道に<span class=\"hl\">まよう</span>", opts:["迷う","敬う","添う","構う"], correct:0},
+  {section:"問題4（漢字）", q:"目標を<span class=\"hl\">たっせいする</span>", opts:["構成","達成","育成","形成"], correct:1},
+  {section:"問題4（漢字）", q:"職に<span class=\"hl\">つく</span>", opts:["突く","導く","招く","就く"], correct:3}
+
 ];
+  function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+  
 
   let current = 0;
   let score = 0;
@@ -304,6 +313,7 @@ const quiz = [
   });
 
   restartBtn.addEventListener("click", () => {
+    shuffle(quiz);
     current = 0;
     score = 0;
     renderQuestion();
@@ -331,7 +341,7 @@ const quiz = [
     const width = (answeredCount / quiz.length) * 100;
     progressFill.style.width = `${width}%`;
   }
-
+  shuffle(quiz); 
   renderQuestion();
 </script>
 </body>

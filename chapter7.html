@@ -4,7 +4,7 @@
   <meta name="google" content="notranslate">
   <meta http-equiv="Content-Language" content="ja">
   <meta charset="UTF-8">
-  <title>Chapter 1 Kanji Quiz</title>
+  <title>Chapter 7 Kanji Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -161,7 +161,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>Chapter 1 漢字 001～072 クイズ</h1>
+  <h1>第7漢字クイズ</h1>
   <div class="subtitle">シンプル4択 / choose 1 option → see Correct / Wrong</div>
 
   <div class="meta-row">
@@ -187,8 +187,8 @@ const quiz = [
   // 問題1（読む）
   {section:"問題1（読む）", q:"手を洗うなどインフルエンザの感染予防<span class=\"hl\">対策</span>をしっかりしましょう。", opts:["たいせい","たいさく","たいしょう","たいそう"], correct:1},
   {section:"問題1（読む）", q:"人事評価は<span class=\"hl\">平等</span>に行われるべきだ。", opts:["へいとう","へいどう","びょうとう","びょうどう"], correct:3},
-  {section:"問題1（読む）", q:"タンパク質が筋肉づくりに<span class=\"hl\">効果</span>的だと言われている。", opts:["きんにく","けんにく","すしにく","すじにく"], correct:0},
-  {section:"問題1（読む）", q:"一人一人のお客さまに丁寧に<span class=\"hl\">対応</span>する。", opts:["ていね","ていねい","ちょうね","ちょうねい"], correct:1},
+  {section:"問題1（読む）", q:"タンパク質が<span class=\"hl\">筋肉</span>づくりに効果的だと言われている。", opts:["きんにく","けんにく","すしにく","すじにく"], correct:0},
+  {section:"問題1（読む）", q:"一人一人のお客さまに<span class=\"hl\">丁寧</span>に対応する。", opts:["ていね","ていねい","ちょうね","ちょうねい"], correct:1},
   {section:"問題1（読む）", q:"授業中に<span class=\"hl\">居眠り</span>をして先生に注意された。", opts:["えねいり","いねいり","いねむり","えねむり"], correct:2},
   {section:"問題1（読む）", q:"雲が白くて羊の<span class=\"hl\">群れ</span>のように見える。", opts:["やぶれ","おそれ","くれ","むれ"], correct:3},
   {section:"問題1（読む）", q:"窓から見える<span class=\"hl\">景色</span>がとてもきれいだ。", opts:["けいしき","けしき","けいいろ","けいろ"], correct:1},
@@ -197,9 +197,9 @@ const quiz = [
   {section:"問題1（読む）", q:"この植物は日本列島に広く<span class=\"hl\">分布</span>している。", opts:["ぶんぷ","ふんふ","ふんぷ","ぶんふ"], correct:0},
 
   // 問題2（漢字）
-  {section:"問題2（漢字）", q:"会社の経営がきびしく、今年は賞与が出なかった。", opts:["厳しく","等しく","著しく","寂しく"], correct:0},
+  {section:"問題2（漢字）", q:"会社の経営が<span class=\"hl\">きびしく</span>、今年は賞与が出なかった。", opts:["厳しく","等しく","著しく","寂しく"], correct:0},
   {section:"問題2（漢字）", q:"木炭が燃え尽きて<span class=\"hl\">はい</span>になる。", opts:["岸","床","舟","灰"], correct:3},
-  {section:"問題2（漢字）", q:"営業職を希望していないのに、営業部にはいぞくされた。", opts:["配層","配属","配居","配展"], correct:1},
+  {section:"問題2（漢字）", q:"営業職を希望していないのに、営業部に<span class=\"hl\">はいぞく</span>された。", opts:["配層","配属","配居","配展"], correct:1},
   {section:"問題2（漢字）", q:"地震の被害を受けた建物の<span class=\"hl\">ふっきゅう</span>工事が来月から行われる。", opts:["復習","復興","復旧","復活"], correct:2},
   {section:"問題2（漢字）", q:"飛行機は強風のため<span class=\"hl\">けっこう</span>した。", opts:["欠般","欠航","欠舟","欠船"], correct:1},
   {section:"問題2（漢字）", q:"手紙を<span class=\"hl\">ふうとう</span>に入れてポストに投函する。", opts:["封筒","封筋","封符","封箱"], correct:0},
@@ -228,10 +228,17 @@ const quiz = [
   {section:"問題4（漢字）", q:"従業員を<span class=\"hl\">やとう</span>", opts:["雇う","占う","従う","伺う"], correct:0},
   {section:"問題4（漢字）", q:"影響を<span class=\"hl\">あたえる</span>", opts:["蓄える","与える","燃える","替える"], correct:1},
   {section:"問題4（漢字）", q:"部屋を<span class=\"hl\">かたづける</span>", opts:["戸付ける","令付ける","革付ける","片付ける"], correct:3},
-  {section:"問題4（漢字）", q:"くつを<span class=\"hl\">はく</span>", opts:["革","靴","令","齢"], correct:1},
+  {section:"問題4（漢字）", q:"<span class=\"hl\">くつ</span>をはく", opts:["革","靴","令","齢"], correct:1},
   {section:"問題4（漢字）", q:"高層ビルを<span class=\"hl\">きずく</span>", opts:["磨く","響く","築く","導く"], correct:2},
-  {section:"問題4（漢字）", q:"けつあつを<span class=\"hl\">測る</span>", opts:["血圧","血液","血管","血筋"], correct:0}
+  {section:"問題4（漢字）", q:"<span class=\"hl\">けつあつ</span>を測る", opts:["血圧","血液","血管","血筋"], correct:0}
 ];
+  function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+  
 
   let current = 0;
   let score = 0;
@@ -304,6 +311,7 @@ const quiz = [
   });
 
   restartBtn.addEventListener("click", () => {
+    shuffle(quiz);
     current = 0;
     score = 0;
     renderQuestion();
@@ -331,7 +339,7 @@ const quiz = [
     const width = (answeredCount / quiz.length) * 100;
     progressFill.style.width = `${width}%`;
   }
-
+  shuffle(quiz); 
   renderQuestion();
 </script>
 </body>

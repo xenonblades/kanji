@@ -162,7 +162,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>第3章 漢字 クイズ</h1>
+  <h1>第3漢字クイズ</h1>
   <div class="subtitle">シンプル4択 / choose 1 option → see Correct / Wrong</div>
 
   <div class="meta-row">
@@ -233,7 +233,13 @@
   {section:"問題4（漢字）", q:"きおく力を<span class=\"hl\">高める</span>", opts:["記憎","記憶","記慌","記悔"], correct:1},
   {section:"問題4（漢字）", q:"写真を<span class=\"hl\">とる</span>", opts:["捕る","撮る","採る","写る"], correct:1}
   ];
-
+  function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+  
 
   let current = 0;
   let score = 0;
@@ -306,6 +312,7 @@
   });
 
   restartBtn.addEventListener("click", () => {
+    shuffle(quiz);
     current = 0;
     score = 0;
     renderQuestion();
@@ -333,9 +340,8 @@
     const width = (answeredCount / quiz.length) * 100;
     progressFill.style.width = `${width}%`;
   }
-
+  shuffle(quiz); 
   renderQuestion();
 </script>
 </body>
 </html>
- 

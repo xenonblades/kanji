@@ -4,7 +4,7 @@
   <meta name="google" content="notranslate">
   <meta http-equiv="Content-Language" content="ja">
   <meta charset="UTF-8">
-  <title>Chapter 1 Kanji Quiz</title>
+  <title>Chapter 5 Kanji Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -161,7 +161,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>Chapter 1 漢字 001～072 クイズ</h1>
+  <h1>第5漢字クイズ</h1>
   <div class="subtitle">シンプル4択 / choose 1 option → see Correct / Wrong</div>
 
   <div class="meta-row">
@@ -197,12 +197,12 @@
     {section:"問題1（読む）", q:"法師によって妖怪が<span class=\"hl\">封印</span>された。", opts:["ほういん","ふういん","せいいん","なついん"], correct:1},
   
     // 問題2（漢字）
-    {section:"問題2（漢字）", q:"ふくしが充実している国で暮らしたい。", opts:["福視","福祉","祝祉","祖祉"], correct:1},
+    {section:"問題2（漢字）", q:"<span class=\"hl\">ふくし</span>が充実している国で暮らしたい。", opts:["福視","福祉","祝祉","祖祉"], correct:1},
     {section:"問題2（漢字）", q:"誕生日パーティーに<span class=\"hl\">さそわれた</span>。", opts:["誘われた","嫌われた","祝われた","補われた"], correct:0},
     {section:"問題2（漢字）", q:"親友に<span class=\"hl\">うらぎられて</span>つらかった。", opts:["袋切られて","装切られて","裁切られて","裏切られて"], correct:3},
     {section:"問題2（漢字）", q:"ご健康をお<span class=\"hl\">いのり</span>しております。", opts:["謝り","散り","昇り","祈り"], correct:3},
     {section:"問題2（漢字）", q:"殺人の容疑で<span class=\"hl\">さいばん</span>にかけられた。", opts:["袋判","装判","裁判","載判"], correct:2},
-    {section:"問題2（漢字）", q:"気温がおおはばに上昇した。", opts:["大幅","大帽","大帳","大帙"], correct:0},
+    {section:"問題2（漢字）", q:"気温が<span class=\"hl\">おおはば</span>に上昇した。", opts:["大幅","大帽","大帳","大帙"], correct:0},
     {section:"問題2（漢字）", q:"ミサイルが発射する<span class=\"hl\">すんぜん</span>に爆発した。", opts:["封前","射前","付前","寸前"], correct:3},
     {section:"問題2（漢字）", q:"一人暮らしは自由だが、<span class=\"hl\">こどく</span>を感じる時もある。", opts:["孤立","孤独","孤児","孤影"], correct:1},
     {section:"問題2（漢字）", q:"周りから<span class=\"hl\">そんけい</span>されている。", opts:["専敬","尊敵","尊敬","専敵"], correct:2},
@@ -232,6 +232,12 @@
     {section:"問題4（漢字）", q:"新年を<span class=\"hl\">いわう</span>", opts:["祝う","補う","救う","敬う"], correct:0},
     {section:"問題4（漢字）", q:"代金を<span class=\"hl\">せいきゅう</span>する", opts:["誘求","諸求","護求","請求"], correct:3}
   ];
+  function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
   
 
   let current = 0;
@@ -305,6 +311,7 @@
   });
 
   restartBtn.addEventListener("click", () => {
+    shuffle(quiz);
     current = 0;
     score = 0;
     renderQuestion();
@@ -332,7 +339,7 @@
     const width = (answeredCount / quiz.length) * 100;
     progressFill.style.width = `${width}%`;
   }
-
+  shuffle(quiz); 
   renderQuestion();
 </script>
 </body>

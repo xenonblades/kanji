@@ -4,7 +4,7 @@
   <meta name="google" content="notranslate">
   <meta http-equiv="Content-Language" content="ja">
   <meta charset="UTF-8">
-  <title>Chapter 1 Kanji Quiz</title>
+  <title>Chapter 8 Kanji Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -161,7 +161,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>Chapter 1 漢字 001～072 クイズ</h1>
+  <h1>第8漢字クイズ</h1>
   <div class="subtitle">シンプル4択 / choose 1 option → see Correct / Wrong</div>
 
   <div class="meta-row">
@@ -190,11 +190,11 @@ const quiz = [
   {section:"問題1（読む）", q:"武士に関する<span class=\"hl\">文章</span>を読んだ。", opts:["ぶんしょう","ふんしょう","ぶんじょう","ふんじょう"], correct:0},
   {section:"問題1（読む）", q:"ピアノを<span class=\"hl\">弾ける</span>ようになるには努力が必要だ。", opts:["たたける","ひける","なける","たける"], correct:1},
   {section:"問題1（読む）", q:"このキノコには<span class=\"hl\">毒</span>があると言われている。", opts:["はり","とげ","どく","さら"], correct:2},
-  {section:"問題1（読む）", q:"俳句の本を三冊持っている。", opts:["みっつ","さんぼん","さんほん","さんさつ"], correct:3},
-  {section:"問題1（読む）", q:"我々の<span class=\"hl\">目的</span>は利益を上げることだ。", opts:["これこれ","かれかれ","ひとびと","われわれ"], correct:3},
+  {section:"問題1（読む）", q:"俳句の本を<span class=\"hl\">三冊</span>持っている。", opts:["みっつ","さんぼん","さんほん","さんさつ"], correct:3},
+  {section:"問題1（読む）", q:"<span class=\"hl\">我々</span>の目的は利益を上げることだ。", opts:["これこれ","かれかれ","ひとびと","われわれ"], correct:3},
   {section:"問題1（読む）", q:"大事な<span class=\"hl\">契約書</span>がなかなか届かない。", opts:["けいやくしょ","ていやくしょ","めいやくしょ","そうやくしょ"], correct:0},
   {section:"問題1（読む）", q:"あそこの赤い<span class=\"hl\">髪</span>の女性は私の双子の姉だ。", opts:["はね","かみ","ふく","くつ"], correct:1},
-  {section:"問題1（読む）", q:"江戸時代の<span class=\"hl\">皿</span>に興味がある。", opts:["うまみ","こうみ","しゅみ","きょうみ"], correct:3},
+  {section:"問題1（読む）", q:"江戸時代の皿に<span class=\"hl\">興味</span>がある。", opts:["うまみ","こうみ","しゅみ","きょうみ"], correct:3},
 
   // 問題2（漢字）
   {section:"問題2（漢字）", q:"店長の<span class=\"hl\">しょうにん</span>がないと発注できない。", opts:["承認","承任","照認","商任"], correct:0},
@@ -204,9 +204,9 @@ const quiz = [
   {section:"問題2（漢字）", q:"平和が<span class=\"hl\">えいえん</span>に続きますように。", opts:["泳遠","水遠","永遠","氷遠"], correct:2},
   {section:"問題2（漢字）", q:"<span class=\"hl\">きょくたん</span>な例を挙げて説明する。", opts:["極端","局端","極単","局単"], correct:0},
   {section:"問題2（漢字）", q:"<span class=\"hl\">えいよう</span>バランスの良い料理。", opts:["宋溶","栄溶","宋養","栄養"], correct:3},
-  {section:"問題2（漢字）", q:"娘に<span class=\"hl\">どうわ</span>を読んであげる。", opts:["甘話","同羽","童話","動和"], correct:2},
+  {section:"問題2（漢字）", q:"３歳の娘に<span class=\"hl\">どうわ</span>を読んであげる。", opts:["甘話","同羽","童話","動和"], correct:2},
   {section:"問題2（漢字）", q:"消防士のための<span class=\"hl\">しせつ</span>を建設する。", opts:["施投","施設","施没","施股"], correct:1},
-  {section:"問題2（漢字）", q:"友達の<span class=\"hl\">おみまい</span>に行く。", opts:["お見毎","お美毎","お見舞い","お美舞い"], correct:2},
+  {section:"問題2（漢字）", q:"食中毒で入院した友達の<span class=\"hl\">おみまい</span>に行く。", opts:["お見毎","お美毎","お見舞い","お美舞い"], correct:2},
 
   // 問題3（読む）
   {section:"問題3（読む）", q:"<span class=\"hl\">氷</span>", opts:["こうり","こおり","こんり","こっり"], correct:1},
@@ -221,7 +221,7 @@ const quiz = [
   {section:"問題3（読む）", q:"<span class=\"hl\">競争</span>", opts:["とんそう","とうそう","きょうそう","こうそう"], correct:2},
 
   // 問題4（漢字）
-  {section:"問題4（漢字）", q:"たまご料理を作る", opts:["卯","卵","王子","球子"], correct:1},
+  {section:"問題4（漢字）", q:"<span class=\"hl\">たまご</span>料理を作る", opts:["卯","卵","王子","球子"], correct:1},
   {section:"問題4（漢字）", q:"部屋を<span class=\"hl\">せいり</span>する", opts:["整理","正理","制理","成理"], correct:0},
   {section:"問題4（漢字）", q:"試合が<span class=\"hl\">しゅうりょう</span>する", opts:["修子","終子","修了","終了"], correct:3},
   {section:"問題4（漢字）", q:"<span class=\"hl\">こうしんりょう</span>を買う", opts:["好辛料","好幸料","香辛料","香幸料"], correct:2},
@@ -233,6 +233,13 @@ const quiz = [
   {section:"問題4（漢字）", q:"注文を<span class=\"hl\">うけたまわる</span>", opts:["承る","劣る","触る","余る"], correct:0}
 ];
 
+  function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+  
 
   let current = 0;
   let score = 0;
@@ -305,6 +312,7 @@ const quiz = [
   });
 
   restartBtn.addEventListener("click", () => {
+    shuffle(quiz);
     current = 0;
     score = 0;
     renderQuestion();
@@ -332,7 +340,7 @@ const quiz = [
     const width = (answeredCount / quiz.length) * 100;
     progressFill.style.width = `${width}%`;
   }
-
+  shuffle(quiz); 
   renderQuestion();
 </script>
 </body>

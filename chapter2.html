@@ -4,7 +4,7 @@
   <meta name="google" content="notranslate">
   <meta http-equiv="Content-Language" content="ja">
   <meta charset="UTF-8">
-  <title>Chapter 1 Kanji Quiz</title>
+  <title>Chapter 2 Kanji Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -161,7 +161,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>Chapter 1 漢字 001～072 クイズ</h1>
+  <h1>第2漢字クイズ</h1>
   <div class="subtitle">シンプル4択 / choose 1 option → see Correct / Wrong</div>
 
   <div class="meta-row">
@@ -233,6 +233,13 @@
   {section:"問題4（漢字）", q:"かたを落とす", opts:["胃","背","骨","肩"], correct:3}
   ];
 
+  function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+  
 
   let current = 0;
   let score = 0;
@@ -305,6 +312,7 @@
   });
 
   restartBtn.addEventListener("click", () => {
+    shuffle(quiz);
     current = 0;
     score = 0;
     renderQuestion();
@@ -332,7 +340,7 @@
     const width = (answeredCount / quiz.length) * 100;
     progressFill.style.width = `${width}%`;
   }
-
+  shuffle(quiz); 
   renderQuestion();
 </script>
 </body>
