@@ -280,12 +280,12 @@
     });
 
     if (idx === correctIdx) {
-      feedbackEl.textContent = "✅ 正解！ / Correct!";
+      feedbackEl.textContent = "いいですね！ 👍";
       score++;
     } else {
       clickedBtn.classList.add("wrong");
       const correctText = item.opts[correctIdx];
-      feedbackEl.textContent = `❌ 不正解… / Wrong. 正解: ${correctIdx+1}. ${correctText}`;
+      feedbackEl.textContent = "ちょっと違います… 😅";
     }
     updateProgress();
 
