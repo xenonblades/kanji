@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1 Kanji Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 16px;
+      background: radial-gradient(circle at 20% 20%, #1f1f1f, #0d0d0d 45%);
+      color: #f5f5f5;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(22, 22, 22, 0.8);
+      border: 1px solid #2b2b2b;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(3px);
+    }
+    h1 {
+      font-size: 1.45rem;
+      margin: 0 0 4px;
+      letter-spacing: 0.04em;
+    }
+    .subtitle {
+      font-size: 0.9rem;
+      color: #c0c0c0;
+      margin-bottom: 12px;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    #section-label {
+      font-size: 0.95rem;
+      color: #e8e8e8;
+    }
+    .score-pill {
+      background: #1f2b46;
+      color: #cbd9ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+    .progress-bar {
+      position: relative;
+      width: 100%;
+      height: 10px;
+      background: #1b1b1b;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 12px;
+      border: 1px solid #2e2e2e;
+    }
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #42a5f5, #7c4dff);
+      transition: width 0.25s ease;
+    }
+    #question {
+      margin: 16px 0 12px;
+      line-height: 1.6;
+      font-size: 1.08rem;
+    }
+    .hl {
+      background: #ffee58;
+      color: #000;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .meta {
+      font-size: 0.8rem;
+      color: #bbb;
+    }
+    .options {
+      margin-top: 8px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 10px;
+    }
+    button.option {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #3a3a3a;
+      background: #1b1b1b;
+      color: #f5f5f5;
+      font-size: 0.95rem;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.08s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    button.option:hover:not(:disabled) {
+      transform: translateY(-2px);
+      border-color: #4f7cff;
+    }
+    button.option:disabled {
+      opacity: 0.75;
+      cursor: default;
+    }
+    button.option.correct {
+      border-color: #4caf50;
+      background: #19351d;
+    }
+    button.option.wrong {
+      border-color: #f44336;
+      background: #351a1a;
+    }
+    #feedback {
+      margin-top: 10px;
+      min-height: 1.4em;
+      font-size: 0.95rem;
+    }
+    #next-btn, #restart-btn {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: none;
+      font-size: 0.98rem;
+      cursor: pointer;
+      width: 100%;
+      letter-spacing: 0.01em;
+      transition: transform 0.08s ease, filter 0.2s ease;
+    }
+    #next-btn:hover, #restart-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.07);
+    }
+    #next-btn {
+      background: linear-gradient(135deg, #2962ff, #0d47a1);
+      color: #fff;
+    }
+    #restart-btn {
+      background: #444;
+      color: #fff;
+    }
+    #progress {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: #bbb;
+    }
+    .hint {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Chapter 1 漢字 001～072 クイズ</h1>
+  <div class="subtitle">シンプル4択 / choose 1 option → see Correct / Wrong</div>
+
+  <div class="meta-row">
+    <div class="meta" id="section-label"></div>
+    <div class="score-pill" id="score-pill">Score: 0 / 0</div>
+  </div>
+  <div class="progress-bar" aria-hidden="true"><span id="progress-bar-fill"></span></div>
+  <div id="question"></div>
+
+  <div class="options" id="options"></div>
+
+  <div id="feedback"></div>
+  <div id="progress"></div>
+  <div class="hint">Press 1–4 to answer quickly.</div>
+
+  <button id="next-btn" style="display:none;">Next</button>
+  <button id="restart-btn" style="display:none;">Restart</button>
+</div>
+
+<script>
+  // 0-based correct index
+  const quiz = [
+  // 問題1（読む）
+  {section:"問題1（読む）", q:"ご期待に添えるよう、<span class=\"hl\">精一杯</span>がんばります。", opts:["せいいちはい","せいいちぱい","せいいっぱい","せいいっばい"], correct:2},
+  {section:"問題1（読む）", q:"<span class=\"hl\">規模</span>が大きい会社で働きたい。", opts:["きも","きもう","きぼ","きぼう"], correct:2},
+  {section:"問題1（読む）", q:"小野さんはとても<span class=\"hl\">陽気</span>な人だ。", opts:["ようけ","ようき","やんけ","やんき"], correct:1},
+  {section:"問題1（読む）", q:"帰宅途中に急に<span class=\"hl\">大粒</span>の雨が降ってきてびっしょりだった。", opts:["だいりつ","だいつぶ","おおりつ","おおつぶ"], correct:3},
+  {section:"問題1（読む）", q:"階段から落ちて足を<span class=\"hl\">骨折</span>してしまった。", opts:["こっせつ","こっぜつ","こつせつ","こつぜつ"], correct:0},
+  {section:"問題1（読む）", q:"戦争に巻き込まれ、<span class=\"hl\">罪</span>のない人が多く亡くなってしまった。", opts:["すみ","ずみ","つみ","ざい"], correct:2},
+  {section:"問題1（読む）", q:"不況が続き、景気回復の<span class=\"hl\">兆し</span>がまったく見えない。", opts:["きさし","きざし","ささし","さざし"], correct:1},
+  {section:"問題1（読む）", q:"隣の人に足を<span class=\"hl\">踏まれた</span>。", opts:["かまれた","のまれた","こばまれた","ふまれた"], correct:3},
+  {section:"問題1（読む）", q:"<span class=\"hl\">取材</span>のために事故現場に向かう。", opts:["しゅざい","しゅさい","しゅうざい","しゅうさい"], correct:0},
+  {section:"問題1（読む）", q:"趣味で<span class=\"hl\">株</span>を始めた。", opts:["かふ","かぶ","から","がら"], correct:1},
+
+  // 問題2（漢字）
+  {section:"問題2（漢字）", q:"このパンがやわらかくて、とてもおいしい。", opts:["柔らかくて","染らかくて","季らかくて","秀らかくて"], correct:0},
+  {section:"問題2（漢字）", q:"車がこしょうしたので、しばらくは電車で通勤する。", opts:["保障","故障","保除","故除"], correct:1},
+  {section:"問題2（漢字）", q:"彼のひどい態度にはらが立ってしようがない。", opts:["腕","腰","胸","腹"], correct:3},
+  {section:"問題2（漢字）", q:"山の頂上から景色を<span class=\"hl\">ながめる</span>ことが好きだ。", opts:["眺める","染める","傷める","沈める"], correct:0},
+  {section:"問題2（漢字）", q:"どろぼうに<span class=\"hl\">財布</span>を盗まれた。", opts:["泥柄","泥棚","泥棒","泥模"], correct:2},
+  {section:"問題2（漢字）", q:"都心より静かなこうがいに住みたい。", opts:["郊外","交外","障外","章外"], correct:0},
+  {section:"問題2（漢字）", q:"社会人にとって、じんみゃくを広げることが大事だと思う。", opts:["人脂","人臓","人脈","人腕"], correct:2},
+  {section:"問題2（漢字）", q:"しんぞうは体全体に血液を送っている。", opts:["心腕","心腰","心肌","心臓"], correct:3},
+  {section:"問題2（漢字）", q:"熊はとうみんする動物としてよく知られている。", opts:["冬民","冬眠","冬兆","冬眺"], correct:1},
+  {section:"問題2（漢字）", q:"彼は日本への入国をこばまれた。", opts:["巨まれた","拒まれた","距まれた","臣まれた"], correct:1},
+
+  // 問題3（読む）
+  {section:"問題3（読む）", q:"<span class=\"hl\">耳鼻科</span>", opts:["みみはなか","みみばなか","しびか","じびか"], correct:3},
+  {section:"問題3（読む）", q:"<span class=\"hl\">分析</span>", opts:["ふんせき","ぶんせき","ふんしき","ぶんしき"], correct:1},
+  {section:"問題3（読む）", q:"<span class=\"hl\">柱</span>", opts:["はしら","がら","えだ","ぼう"], correct:0},
+  {section:"問題3（読む）", q:"<span class=\"hl\">人柄</span>", opts:["ひとへい","ひとから","ひとがら","じんがら"], correct:2},
+  {section:"問題3（読む）", q:"<span class=\"hl\">積極的</span>", opts:["せきょくてき","せごくてき","せっきょくてき","せつごくてき"], correct:2},
+  {section:"問題3（読む）", q:"<span class=\"hl\">結構</span>", opts:["けつこう","けつごう","けっこう","けっごう"], correct:2},
+  {section:"問題3（読む）", q:"<span class=\"hl\">権利</span>", opts:["けんちょう","けんとう","けんりょく","けんり"], correct:3},
+  {section:"問題3（読む）", q:"<span class=\"hl\">日程</span>", opts:["にちてい","にってい","にちでい","ひてい"], correct:1},
+  {section:"問題3（読む）", q:"<span class=\"hl\">穏やか</span>", opts:["ゆるやか","あざやか","にぎやか","おだやか"], correct:3},
+  {section:"問題3（読む）", q:"<span class=\"hl\">頭脳</span>", opts:["ずのう","とうのう","どうのう","どうの"], correct:0},
+
+  // 問題4（漢字）
+  {section:"問題4（漢字）", q:"木がかれる", opts:["桜れる","枯れる","柱れる","株れる"], correct:1},
+  {section:"問題4（漢字）", q:"ウイルスにかんせんする", opts:["感心","感覚","感動","感染"], correct:3},
+  {section:"問題4（漢字）", q:"雪がつもる", opts:["積もる","秘もる","穏もる","程もる"], correct:0},
+  {section:"問題4（漢字）", q:"責任をついきゅうする", opts:["追求","追究","追及","追給"], correct:2},
+  {section:"問題4（漢字）", q:"飛行機がちゃくりくする", opts:["着隠","着陸","着隅","着除"], correct:1},
+  {section:"問題4（漢字）", q:"犯人をついせきする", opts:["追跡","追踊","追踏","追距"], correct:0},
+  {section:"問題4（漢字）", q:"影響をおよぼす", opts:["巨ぼす","拒ぼす","及ぼす","扱ぼす"], correct:2},
+  {section:"問題4（漢字）", q:"ダンスをおどる", opts:["跡る","距る","踏る","踊る"], correct:3},
+  {section:"問題4（漢字）", q:"髪をそめる", opts:["染める","眺める","秘める","丸める"], correct:0},
+  {section:"問題4（漢字）", q:"かたを落とす", opts:["胃","背","骨","肩"], correct:3}
+  ];
+
+
+  let current = 0;
+  let score = 0;
+  let optionButtons = [];
+
+  const sectionLabel = document.getElementById("section-label");
+  const questionEl = document.getElementById("question");
+  const optionsEl  = document.getElementById("options");
+  const feedbackEl = document.getElementById("feedback");
+  const progressEl = document.getElementById("progress");
+  const nextBtn    = document.getElementById("next-btn");
+  const restartBtn = document.getElementById("restart-btn");
+  const scorePill  = document.getElementById("score-pill");
+  const progressFill = document.getElementById("progress-bar-fill");
+
+  function renderQuestion() {
+    const item = quiz[current];
+    sectionLabel.textContent = item.section + `（${current+1} / ${quiz.length}）`;
+    questionEl.innerHTML = item.q;
+    feedbackEl.textContent = "";
+    nextBtn.style.display = "none";
+    restartBtn.style.display = "none";
+
+    optionsEl.innerHTML = "";
+    optionButtons = item.opts.map((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.className = "option";
+      btn.dataset.idx = idx;
+      btn.textContent = `${idx+1}. ${opt}`;
+      btn.onclick = () => handleAnswer(idx, btn);
+      optionsEl.appendChild(btn);
+      return btn;
+    });
+
+    updateProgress();
+  }
+
+  function handleAnswer(idx, clickedBtn) {
+    const item = quiz[current];
+    const correctIdx = item.correct;
+    const buttons = optionsEl.querySelectorAll("button.option");
+
+    buttons.forEach((b, i) => {
+      b.disabled = true;
+      if (i === correctIdx) b.classList.add("correct");
+    });
+
+    if (idx === correctIdx) {
+      feedbackEl.textContent = "✅ 正解！ / Correct!";
+      score++;
+    } else {
+      clickedBtn.classList.add("wrong");
+      const correctText = item.opts[correctIdx];
+      feedbackEl.textContent = `❌ 不正解… / Wrong. 正解: ${correctIdx+1}. ${correctText}`;
+    }
+    updateProgress();
+
+    if (current < quiz.length - 1) {
+      nextBtn.style.display = "block";
+    } else {
+      nextBtn.style.display = "none";
+      restartBtn.style.display = "block";
+      feedbackEl.textContent += "  お疲れさま！ / Finished!";
+    }
+  }
+
+  nextBtn.addEventListener("click", () => {
+    current++;
+    renderQuestion();
+  });
+
+  restartBtn.addEventListener("click", () => {
+    current = 0;
+    score = 0;
+    renderQuestion();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!optionButtons.length) return;
+    const keyNumber = Number(event.key);
+    if (keyNumber >= 1 && keyNumber <= optionButtons.length) {
+      const btn = optionButtons[keyNumber - 1];
+      if (!btn.disabled) {
+        btn.click();
+      }
+    }
+  });
+
+  function updateProgress() {
+    const answeredCount = Math.min(quiz.length, current + (feedbackEl.textContent ? 1 : 0));
+    const statusLabel = feedbackEl.textContent
+      ? `Answered ${answeredCount} / ${quiz.length}`
+      : `Question ${current + 1} / ${quiz.length}`;
+
+    progressEl.textContent = `${statusLabel} • Score: ${score} / ${quiz.length}`;
+    scorePill.textContent = `Score: ${score} / ${quiz.length}`;
+    const width = (answeredCount / quiz.length) * 100;
+    progressFill.style.width = `${width}%`;
+  }
+
+  renderQuestion();
+</script>
+</body>
+</html>
