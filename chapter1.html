@@ -183,55 +183,56 @@
 
 <script>
   // 0-based correct index
-  const quiz = [
-    // 問題1 読み方
-    {section:"問題1（読む）", q:"<span class=\"hl\">仮病</span>で仕事を休むのはよくないと思う。", opts:["かびょう","けびょう","かりびょう","かんびょう"], correct:1},
-    {section:"問題1（読む）", q:"あの親子は性格が<span class=\"hl\">似ている</span>。", opts:["にている","きている","まねている","ついている"], correct:0},
-    {section:"問題1（読む）", q:"先生に「<span class=\"hl\">偉い</span>」とほめられた。", opts:["かるい","うまい","かたい","えらい"], correct:3},
-    {section:"問題1（読む）", q:"<span class=\"hl\">対象</span>の方には、記念品をお配りします。", opts:["たいぞう","たいぞ","たいしょう","たいしょ"], correct:2},
-    {section:"問題1（読む）", q:"明日10時にそちらに<span class=\"hl\">伺います</span>。", opts:["はらいます","うかがいます","そいます","かまいます"], correct:1},
-    {section:"問題1（読む）", q:"一度でいいから<span class=\"hl\">立派</span>な家に住んでみたい。", opts:["りつは","りっは","りぱ","りっぱ"], correct:3},
-    {section:"問題1（読む）", q:"店長に休みたいと言ったら、<span class=\"hl\">渋い</span>顔をされた。", opts:["しぶい","こわい","つらい","にがい"], correct:0},
-    {section:"問題1（読む）", q:"父も兄も<span class=\"hl\">漁師</span>をしている。", opts:["ぎょし","りょし","りょうし","ぎょうし"], correct:2},
-    {section:"問題1（読む）", q:"熱くて<span class=\"hl\">濃い</span>コーヒーを飲むと目が覚める。", opts:["にがい","こい","つよい","うすい"], correct:1},
-    {section:"問題1（読む）", q:"この国は夏は<span class=\"hl\">湿気</span>が多くて、暑い。", opts:["しめけ","しっき","しつけ","しっけ"], correct:3},
+const quiz = [
+  // 問題1 読み方
+  {section:"問題1（読む）", q:"<span class=\"hl\">仮病</span>で仕事を休むのはよくないと思う。", opts:["かびょう","けびょう","かりびょう","かんびょう"], correct:1},
+  {section:"問題1（読む）", q:"あの親子は性格が<span class=\"hl\">似ている</span>。", opts:["にている","きている","まねている","ついている"], correct:0},
+  {section:"問題1（読む）", q:"先生に「<span class=\"hl\">偉い</span>」とほめられた。", opts:["かるい","うまい","かたい","えらい"], correct:3},
+  {section:"問題1（読む）", q:"<span class=\"hl\">対象</span>の方には、記念品をお配りします。", opts:["たいぞう","たいぞ","たいしょう","たいしょ"], correct:2},
+  {section:"問題1（読む）", q:"明日10時にそちらに<span class=\"hl\">伺います</span>。", opts:["はらいます","うかがいます","そいます","かまいます"], correct:1},
+  {section:"問題1（読む）", q:"一度でいいから<span class=\"hl\">立派</span>な家に住んでみたい。", opts:["りつは","りっは","りぱ","りっぱ"], correct:3},
+  {section:"問題1（読む）", q:"店長に休みたいと言ったら、<span class=\"hl\">渋い</span>顔をされた。", opts:["しぶい","こわい","つらい","にがい"], correct:0},
+  {section:"問題1（読む）", q:"父も兄も<span class=\"hl\">漁師</span>をしている。", opts:["ぎょし","りょし","りょうし","ぎょうし"], correct:2},
+  {section:"問題1（読む）", q:"熱くて<span class=\"hl\">濃い</span>コーヒーを飲むと目が覚める。", opts:["にがい","こい","つよい","うすい"], correct:1},
+  {section:"問題1（読む）", q:"この国は夏は<span class=\"hl\">湿気</span>が多くて暑い。", opts:["しめけ","しっき","しつけ","しっけ"], correct:3},
 
-    // 問題2 漢字で書く
-    {section:"問題2（漢字）", q:"健康のために、ときどき体をのばしましょう。", opts:["延ばしましょう","伸ばしましょう","似ばしましょう","促ばしましょう"], correct:1},
-    {section:"問題2（漢字）", q:"ぶっきょうが日本に伝わったのは、1400年以上前のことだ。", opts:["依教","偶教","像教","仏教"], correct:3},
-    {section:"問題2（漢字）", q:"友達の話に耳をかたむける。", opts:["傾ける","頃ける","像ける","象ける"], correct:0},
-    {section:"問題2（漢字）", q:"かいとう機能が付いている電子レンジを買う。", opts:["解凍","解冷","解滴","解浴"], correct:0},
-    {section:"問題2（漢字）", q:"不況で父の会社がとうさんした。", opts:["衣産","依産","到産","倒産"], correct:3},
-    {section:"問題2（漢字）", q:"地球の平均気温がじょじょに上がってきている。", opts:["段々","諸々","徐々","各々"], correct:2},
-    {section:"問題2（漢字）", q:"この駅は週末になるとこんざつしやすい。", opts:["渋雑","混雑","浅雑","沈雑"], correct:1},
-    {section:"問題2（漢字）", q:"5年間日本にたいざいしたことがある。", opts:["混在","洪在","滞在","渋在"], correct:2},
-    {section:"問題2（漢字）", q:"この国では18歳未満の飲酒はほうりつで禁止されている。", opts:["法律","法往","法御","法得"], correct:0},
-    {section:"問題2（漢字）", q:"上司の指示にしたがって仕事をする。", opts:["街って","徒って","従って","律って"], correct:2},
+  // 問題2（漢字）
+  {section:"問題2（漢字）", q:"健康のために、ときどき体を<span class=\"hl\">のばしましょう</span>。", opts:["延ばしましょう","伸ばしましょう","似ばしましょう","促ばしましょう"], correct:1},
+  {section:"問題2（漢字）", q:"<span class=\"hl\">ぶっきょう</span>が日本に伝わったのは1400年以上前のことだ。", opts:["依教","偶教","像教","仏教"], correct:3},
+  {section:"問題2（漢字）", q:"友達の話に耳を<span class=\"hl\">かたむける</span>。", opts:["傾ける","頃ける","像ける","象ける"], correct:0},
+  {section:"問題2（漢字）", q:"<span class=\"hl\">かいとう</span>機能が付いている電子レンジを買う。", opts:["解凍","解冷","解滴","解浴"], correct:0},
+  {section:"問題2（漢字）", q:"不況で父の会社が<span class=\"hl\">とうさん</span>した。", opts:["衣産","依産","到産","倒産"], correct:3},
+  {section:"問題2（漢字）", q:"地球の平均気温が<span class=\"hl\">じょじょ</span>に上がってきている。", opts:["段々","諸々","徐々","各々"], correct:2},
+  {section:"問題2（漢字）", q:"この駅は週末になると<span class=\"hl\">こんざつ</span>しやすい。", opts:["渋雑","混雑","浅雑","沈雑"], correct:1},
+  {section:"問題2（漢字）", q:"5年間日本に<span class=\"hl\">たいざい</span>したことがある。", opts:["混在","洪在","滞在","渋在"], correct:2},
+  {section:"問題2（漢字）", q:"この国では18歳未満の飲酒は<span class=\"hl\">ほうりつ</span>で禁止されている。", opts:["法律","法往","法御","法得"], correct:0},
+  {section:"問題2（漢字）", q:"上司の指示に<span class=\"hl\">したがって</span>仕事をする。", opts:["街って","徒って","従って","律って"], correct:2},
 
-    // 問題3 読み方
-    {section:"問題3（読む）", q:"清潔", opts:["せいけい","せいけつ","せけい","せけつ"], correct:1},
-    {section:"問題3（読む）", q:"仲間", opts:["ちゅうかん","ちょうかん","なかま","なかば"], correct:2},
-    {section:"問題3（読む）", q:"俳優", opts:["はいゆう","はいゆ","かいゆう","かいゆ"], correct:0},
-    {section:"問題3（読む）", q:"偶然", opts:["くぜん","くうせん","ぐせん","ぐうぜん"], correct:3},
-    {section:"問題3（読む）", q:"運河", opts:["うんか","うんが","うんかわ","うんがわ"], correct:1},
-    {section:"問題3（読む）", q:"浮気", opts:["ふき","ふけ","うわき","うわけ"], correct:2},
-    {section:"問題3（読む）", q:"行儀", opts:["きょうぎ","ぎょうぎ","こうぎ","こうき"], correct:1},
-    {section:"問題3（読む）", q:"投票", opts:["とうひょう","どうひょう","とうぴょう","どうぴょう"], correct:0},
-    {section:"問題3（読む）", q:"催促", opts:["すいそく","すいぞく","さいそく","さいぞく"], correct:2},
-    {section:"問題3（読む）", q:"祭り", opts:["となり","まわり","かおり","まつり"], correct:3},
+  // 問題3（読む）
+  {section:"問題3（読む）", q:"<span class=\"hl\">清潔</span>", opts:["せいけい","せいけつ","せけい","せけつ"], correct:1},
+  {section:"問題3（読む）", q:"<span class=\"hl\">仲間</span>", opts:["ちゅうかん","ちょうかん","なかま","なかば"], correct:2},
+  {section:"問題3（読む）", q:"<span class=\"hl\">俳優</span>", opts:["はいゆう","はいゆ","かいゆう","かいゆ"], correct:0},
+  {section:"問題3（読む）", q:"<span class=\"hl\">偶然</span>", opts:["くぜん","くうせん","ぐせん","ぐうぜん"], correct:3},
+  {section:"問題3（読む）", q:"<span class=\"hl\">運河</span>", opts:["うんか","うんが","うんかわ","うんがわ"], correct:1},
+  {section:"問題3（読む）", q:"<span class=\"hl\">浮気</span>", opts:["ふき","ふけ","うわき","うわけ"], correct:2},
+  {section:"問題3（読む）", q:"<span class=\"hl\">行儀</span>", opts:["きょうぎ","ぎょうぎ","こうぎ","こうき"], correct:1},
+  {section:"問題3（読む）", q:"<span class=\"hl\">投票</span>", opts:["とうひょう","どうひょう","とうぴょう","どうぴょう"], correct:0},
+  {section:"問題3（読む）", q:"<span class=\"hl\">催促</span>", opts:["すいそく","すいぞく","さいそく","さいぞく"], correct:2},
+  {section:"問題3（読む）", q:"<span class=\"hl\">祭り</span>", opts:["となり","まわり","かおり","まつり"], correct:3},
 
-    // 問題4 漢字で書く
-    {section:"問題4（漢字）", q:"もくひょうを達成する", opts:["目票","目標","目祭","目要"], correct:1},
-    {section:"問題4（漢字）", q:"せんたくものを干す", opts:["洗激物","洗潔物","洗演物","洗濯物"], correct:3},
-    {section:"問題4（漢字）", q:"シャワーをあびる", opts:["浴びる","溶びる","源びる","清びる"], correct:0},
-    {section:"問題4（漢字）", q:"体温をはかる", opts:["量る","図る","測る","計る"], correct:2},
-    {section:"問題4（漢字）", q:"税金をちょうしゅうする", opts:["徴収","回収","吸収","領収"], correct:0},
-    {section:"問題4（漢字）", q:"あせをかく", opts:["泥","湾","涙","汗"], correct:3},
-    {section:"問題4（漢字）", q:"お湯をわかす", opts:["溶かす","沸かす","滴かす","漫かす"], correct:1},
-    {section:"問題4（漢字）", q:"日がしずむ", opts:["沈む","浮む","添む","渉む"], correct:0},
-    {section:"問題4（漢字）", q:"まんがを読む", opts:["清画","潔画","漫画","激画"], correct:2},
-    {section:"問題4（漢字）", q:"人口がげきぞうする", opts:["濯増","濃増","滑増","激増"], correct:3}
-  ];
+  // 問題4（漢字）
+  {section:"問題4（漢字）", q:"<span class=\"hl\">もくひょう</span>を達成する", opts:["目票","目標","目祭","目要"], correct:1},
+  {section:"問題4（漢字）", q:"<span class=\"hl\">せんたくもの</span>を干す", opts:["洗激物","洗潔物","洗演物","洗濯物"], correct:3},
+  {section:"問題4（漢字）", q:"シャワーを<span class=\"hl\">あびる</span>", opts:["浴びる","溶びる","源びる","清びる"], correct:0},
+  {section:"問題4（漢字）", q:"体温を<span class=\"hl\">はかる</span>", opts:["量る","図る","測る","計る"], correct:2},
+  {section:"問題4（漢字）", q:"税金を<span class=\"hl\">ちょうしゅう</span>する", opts:["徴収","回収","吸収","領収"], correct:0},
+  {section:"問題4（漢字）", q:"<span class=\"hl\">あせ</span>をかく", opts:["泥","湾","涙","汗"], correct:3},
+  {section:"問題4（漢字）", q:"お湯を<span class=\"hl\">わかす</span>", opts:["溶かす","沸かす","滴かす","漫かす"], correct:1},
+  {section:"問題4（漢字）", q:"日が<span class=\"hl\">しずむ</span>", opts:["沈む","浮む","添む","渉む"], correct:0},
+  {section:"問題4（漢字）", q:"<span class=\"hl\">まんが</span>を読む", opts:["清画","潔画","漫画","激画"], correct:2},
+  {section:"問題4（漢字）", q:"人口が<span class=\"hl\">げきぞう</span>する", opts:["濯増","濃増","滑増","激増"], correct:3}
+];
+
   function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -311,7 +312,7 @@
   });
 
   restartBtn.addEventListener("click", () => {
-    shuffle(quiz);
+        shuffle(quiz);
     current = 0;
     score = 0;
     renderQuestion();
@@ -339,7 +340,7 @@
     const width = (answeredCount / quiz.length) * 100;
     progressFill.style.width = `${width}%`;
   }
-  shuffle(quiz); 
+  // shuffle(quiz);
   renderQuestion();
 </script>
 </body>

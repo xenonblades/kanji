@@ -311,7 +311,7 @@
   });
 
   restartBtn.addEventListener("click", () => {
-    shuffle(quiz);
+        shuffle(quiz);
     current = 0;
     score = 0;
     renderQuestion();
@@ -339,7 +339,7 @@
     const width = (answeredCount / quiz.length) * 100;
     progressFill.style.width = `${width}%`;
   }
-  shuffle(quiz); 
+  // shuffle(quiz);
   renderQuestion();
 </script>
 </body>
